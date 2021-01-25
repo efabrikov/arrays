@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\helpers;
+namespace Yiisoft\Arrays\Modifier;
 
 /**
  * Object that represents the removal of array value while performing [[ArrayHelper::merge()]].
