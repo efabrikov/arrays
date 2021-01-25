@@ -9,6 +9,8 @@ use InvalidArgumentException;
 use Throwable;
 use Yiisoft\Arrays\Modifier\ModifierInterface;
 use Yiisoft\Arrays\Modifier\ReverseBlockMerge;
+use Yiisoft\Arrays\Modifier\UnsetArrayValue;
+use Yiisoft\Arrays\Modifier\ReplaceArrayValue;
 use Yiisoft\Strings\NumericHelper;
 use function array_key_exists;
 use function get_class;
@@ -157,7 +159,11 @@ class ArrayHelper
         while (!empty($args)) {
             /** @psalm-var mixed $v */
             foreach (array_shift($args) as $k => $v) {
-                if (is_int($k)) {
+                if ($v instanceof UnsetArrayValue) {
+                    unset($res[$k]);
+                } elseif ($v instanceof ReplaceArrayValue) {
+                    $res[$k] = $v->value;
+                } elseif (is_int($k)) {
                     if (array_key_exists($k, $res) && $res[$k] !== $v) {
                         /** @var mixed */
                         $res[] = $v;
