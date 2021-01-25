@@ -1,5 +1,5 @@
 {
-    "name": "yiisoft/arrays",
+    "name": "yiisoft/composer-config-plugin",
     "type": "library",
     "description": "Yii Array Helper",
     "keywords": [
