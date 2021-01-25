@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\helpers;
+namespace Yiisoft\Arrays\Modifier;
 
 use yii\base\InvalidConfigException;
 
